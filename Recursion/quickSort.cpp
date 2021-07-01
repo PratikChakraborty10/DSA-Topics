@@ -12,7 +12,7 @@ int partition(int arr[], int si, int ei) {
         if(arr[i] <= pivot) {
             smallCount++;            
         }
-    } 
+    }  
     // Stored the total number of elements smaller than arr[si] on smallCount
     int pivotIndex = si + smallCount;     // Getting the pivotIndex, where pivot element is to be stored
     arr[si] = arr[pivotIndex];            // Shifing the pivot element i.e., arr[si] to its correct position by swapping the element at that position to arr[si]
