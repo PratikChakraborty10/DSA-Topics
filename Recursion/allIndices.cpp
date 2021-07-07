@@ -1,18 +1,18 @@
 #include<iostream>
 using namespace std;
-int allIndexes(int input[], int size, int x, int output[]) {
-    if(size==0) {
+int allIndexes(int arr[], int n, int x, int output[]) {
+    if(n==0) {
         return 0;
     }
-    int smallAns = allIndexes(input+1,size-1,x,output);
-    if(input[0]==x) {
+    int smallAns = allIndexes(arr+1, n-1, x, output);
+    if(arr[0] == x) {
         for(int i=smallAns-1;i>=0;i--) {
             output[i+1] = output[i] + 1;
         }
         output[0] = 0;
         smallAns++;
     } else {
-        for (int i = smallAns - 1; i >= 0; i--) {
+        for(int i=smallAns-1;i>=0;i--) {
             output[i] = output[i] + 1;
         }
     }
@@ -21,25 +21,17 @@ int allIndexes(int input[], int size, int x, int output[]) {
 int main() {
     int n;
     cin >> n;
-  
-    int *input = new int[n];
-    
-    for(int i = 0; i < n; i++) {
-        cin >> input[i];
+    int *arr = new int[n];
+    for(int i=0;i<n;i++) {
+        cin >> arr[i];
     }
-    
     int x;
-    
     cin >> x;
-    
     int *output = new int[n];
-    
-    int size = allIndexes(input, n, x, output);
-    for(int i = 0; i < size; i++) {
+    int size = allIndexes(arr, n, x, output);
+    for(int i=0;i<size;i++) {
         cout << output[i] << " ";
     }
-    
-    delete [] input;
-    
-    delete [] output;
+    delete[] arr;
+    delete[] output;
 }
