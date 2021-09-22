@@ -21,6 +21,8 @@ class ComplexNumbers {
     void print() {
         if(this->imaginary >0) {
         cout<< this->real<<" "<<"+"<<" "<<"i"<<this->imaginary;  
+    } else if(this->imaginary==0) {
+        cout<<this->real;
     } else { 
          this->imaginary =this->imaginary * -1;
          cout<< this->real<<" "<<"-"<<" "<<"i"<<this->imaginary;
