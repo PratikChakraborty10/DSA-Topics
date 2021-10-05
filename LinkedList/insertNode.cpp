@@ -28,25 +28,29 @@ Node *takeInput() {
     }
     return head;
 }
-void printIthNode(Node *head, int i) {
-    Node *curr = head;
+void insertNode(Node *head, int i, int data) {
+    Node *newNode = new Node(data);
     int count = 0;
-    while(curr != NULL) {
-        if(count == i) 
-            cout << curr->data;
+    Node *temp = head;
+    while(count < i-1) {
+        temp=temp->next;
         count++;
-        curr = curr -> next;
+    }
+    Node *a = temp->next;
+    temp->next = newNode;
+    newNode->next=a;
+}
+void print(Node *head) {
+    while(head != NULL) {
+        cout << head->data << " ";
+        head = head->next;
     }
 }
 int main() {
-    int t;
-    cin >> t;
-    while(t--) {
-        Node *head = takeInput();
-        int pos;
-        cin >> pos;
-        printIthNode(head, pos);
-        cout << endl;
-    }
-    return 0;
+    Node *head = takeInput();
+    print(head);
+    int pos, data;
+    cin >> pos >> data;
+    insertNode(head, pos, data);
+    print(head);
 }
