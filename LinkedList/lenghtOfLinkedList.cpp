@@ -28,7 +28,7 @@ Node *takeInput() {
     }
     return head;
 }
-int lenght(Node *head) {
+int length(Node *head) {
     int count = 0;
     Node *temp = head;
     while(temp != NULL) {
@@ -39,6 +39,6 @@ int lenght(Node *head) {
 }
 int main() {
     Node *head = takeInput();
-    int ans = lenght(head);
+    int ans = length(head);
     cout << ans << endl;
 }

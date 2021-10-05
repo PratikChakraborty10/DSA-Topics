@@ -3,7 +3,7 @@ using namespace std;
 class Node {
     public:
     int data;
-    Node *next = NULL;
+    Node *next;
 
     Node(int data) {
         this->data=data;
@@ -22,27 +22,31 @@ Node *takeInput() {
             tail = newNode;
         } else {
             tail->next=newNode;
-            tail = newNode;
+            tail=newNode;
         }
         cin >> data;
     }
     return head;
 }
 void printIthNode(Node *head, int i) {
-    Node *curr = head;
     int count = 0;
-    while(curr != NULL) {
+    Node *temp = head;
+    while(temp != NULL) {
         if(count == i) 
-            cout << curr->data;
+            cout << temp->data;
         count++;
-        curr = curr -> next;
+        temp = temp->next;
     }
 }
 int main() {
-    
-		Node *head = takeInput();
-		int pos;
-		cin >> pos;
-		printIthNode(head, pos);
-		cout << endl;
+    int t;
+    cin >> t;
+    while(t--) {
+        Node *head = takeInput();
+        int pos;
+        cin >> pos;
+        printIthNode(head, pos);
+        cout << endl;
+    }
+    return 0;
 }
