@@ -35,8 +35,17 @@ Node *deleteNode(Node *head, int i) {
         head = head->next;
         return head;
     }
-    head->next = deleteNode(head->next, i-1);
+    Node *temp = head;
+    int count = 0;
+    while(count < i-1) {
+        count++;
+        temp = temp->next;
+    }
+    Node *a = temp->next;
+    Node *b = a->next;
+    temp->next = b;
     return head;
+    delete a;
 }
 void print(Node *head) {
     while(head != NULL) {
