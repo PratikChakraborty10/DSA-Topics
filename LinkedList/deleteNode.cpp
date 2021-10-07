@@ -28,31 +28,20 @@ Node *takeInput() {
     return head;
 }
 Node *deleteNode(Node *head, int i) {
-    Node *temp = head;
-    if(temp == NULL) {
+    if(head == NULL) {
         return NULL;
     }
-    if(i = 0) {
-        return temp->next;
-    }
-    int count = 0;
-    while(temp != NULL && count < i-1) {
-        temp = temp->next;
-        count++;
-    }
-    if(temp == NULL || temp->next==NULL) {
+    if(i == 0) {
+        head = head->next;
         return head;
     }
-    Node *a = temp->next;
-    Node *b = a->next;
-    temp->next = b;
-    delete a;
+    head->next = deleteNode(head->next, i-1);
+    return head;
 }
 void print(Node *head) {
-    Node *temp = head;
-    while(temp != NULL) {
-        cout << temp->data << " ";
-        temp = temp->next;
+    while(head != NULL) {
+        cout << head->data << " ";
+        head = head->next;
     }
 }
 int main() {
