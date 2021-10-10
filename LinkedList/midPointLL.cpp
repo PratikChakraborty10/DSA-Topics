@@ -27,10 +27,10 @@ Node *takeInput() {
     }
     return head;
 }
-Node *midPoint(Node *head) {
-    if(head==NULL || head->next==NULL) {
-        return head;
-    }
+int midPoint(Node *head) {
+    // if(head==NULL || head->next==NULL) {
+    //     return head;
+    // }
     Node *slow = head;
     Node *fast = head->next;
     while(fast != NULL || fast->next != NULL) {
@@ -45,12 +45,15 @@ int main() {
 	while (t--)
 	{
 		Node *head = takeInput();
-		Node *mid = midPoint(head);
-		if (mid != NULL)
+		int ans = midPoint(head);
+		if (ans != NULL)
 		{
-			cout << mid->data;
+			cout << ans;
 		}
 		cout << endl;
+        // Node *head = takeInput();
+        // cout << midPoint(head) << endl;
+
 	}
 	return 0;
 }
