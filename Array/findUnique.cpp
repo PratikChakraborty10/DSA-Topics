@@ -17,7 +17,6 @@ int main() {
     }
     int ans = findUnique(arr, n);
     cout << ans << endl;
-    return 0;
 }
 
 /* Time Complexibity = O(n)

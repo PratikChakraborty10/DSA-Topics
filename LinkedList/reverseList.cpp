@@ -27,12 +27,20 @@ Node *takeInput() {
     }
     return head;
 }
-void reverseList(Node *head) {
-    if(head == NULL) {
+Node *reverseList(Node *head) {
+    /*if(head == NULL) {
         return;
     }
     reverseList(head->next);
-    cout << head->data << " ";
+    cout << head->data << " ";*/
+    Node *dummyNode = NULL;
+    while(head != NULL) {
+        Node *next = head->next;
+        head->next = dummyNode;
+        dummyNode = head;
+        head = next;
+    }
+    return dummyNode;
 }
 void print(Node *head) {
     Node *temp = head;
