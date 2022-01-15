@@ -18,7 +18,7 @@ int partition(int arr[], int si, int ei) {
     arr[si] = arr[pivotIndex];            // Shifing the pivot element i.e., arr[si] to its correct position by swapping the element at that position to arr[si]
     arr[pivotIndex] = pivot;             // Pivot element is now shifted to pivotIndex i.e., to its correct position 
 
-    // Ensure left half contains elements smaller that pivot elemet and rignt half contains eleements laeger than pivot
+    // Ensure left half contains elements smaller that pivot element and right half contains elements laeger than pivot
 
     int i = si;
     int j = ei;
